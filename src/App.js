@@ -68,24 +68,24 @@ class App extends Component {
   }
 
   loadLocales() {
-    let currentLocale = intl.determineLocale({
-      urlLocaleKey: "lang",
-      cookieLocaleKey: "lang",
-    });
-    console.log("currentLocal--->", currentLocale);
-    console.log(
-      "lodash--->",
-      !_.find(SUPPOER_LOCALES, { value: currentLocale })
-    );
-    if (!_.find(SUPPOER_LOCALES, { value: currentLocale })) {
-      currentLocale = "en-US";
-    }
-    console.log("currentLocal--->", currentLocale);
-
+    // let currentLocale = intl.determineLocale({
+    //   urlLocaleKey: "lang",
+    //   cookieLocaleKey: "lang",
+    // });
+    // console.log("currentLocal--->", currentLocale);
+    // console.log(
+    //   "lodash--->",
+    //   !_.find(SUPPOER_LOCALES, { value: currentLocale })
+    // );
+    // if (!_.find(SUPPOER_LOCALES, { value: currentLocale })) {
+    //   currentLocale = "en-US";
+    // }
+    // console.log("currentLocal--->", currentLocale);
+    let currentLocale = "en-US";
     http
       .get(`locales/${currentLocale}.json`)
       .then((res) => {
-        console.log("App locale data", res.data);
+        console.log("App locale data1", res.data);
         // init method will load CLDR locale data according to currentLocale
         return intl.init({
           currentLocale,
